@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.App img {
+  margin-bottom: 3rem;
+}
+
+.BG {
+  text-align: center;
+  background-image: url("./assets/bg-pokemon.webp");
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+  min-height: 100vh;
+}
