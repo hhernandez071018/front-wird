@@ -9,7 +9,7 @@ const Searcher = ({onSearch}: SearchProps): JSX.Element => {
      const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onSearch(event.target.value);
   };
-    return<Input.Search placeholder='Buscar ...' onChange={handleChange}></Input.Search>
+    return<Input placeholder='Buscar ...' onChange={handleChange}></Input>
 }
 
 export default Searcher;

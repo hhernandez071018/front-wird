@@ -1,20 +1,31 @@
-import './PokemonList.css';
-import { PlusCircleOutlined } from "@ant-design/icons";
+import "./PokemonList.css";
 import { Card } from "antd";
 import Meta from "antd/es/card/Meta";
-import { Pokemon } from '../types/pokemonsTypes';
+import { Pokemon } from "../types/pokemonsTypes";
 
 type Props = {
-    pokemon: Pokemon;
-    onAddToBattleReady: (pokemon: Pokemon) => void;
-    onSelectPokemon: (pokemon: Pokemon) => void;
-}
-export const PokemonCard = ({ pokemon, onAddToBattleReady, onSelectPokemon }: Props) : JSX.Element => {
-    return (
-        <Card title={pokemon.name}
-            cover={<img src={pokemon.image} alt={pokemon.name} onClick={() => onSelectPokemon(pokemon)} />}
-            extra={<PlusCircleOutlined onClick={() => onAddToBattleReady(pokemon)} />}>
-            <Meta description="fire, magic"/>
-        </Card>
-    )
-}
+  pokemon: Pokemon;
+  onSelectPokemon: (pokemon: Pokemon) => void;
+  icon?: any;
+};
+export const PokemonCard = ({
+  pokemon,
+  onSelectPokemon,
+  icon,
+}: Props): JSX.Element => {
+  return (
+    <Card
+      title={pokemon.name}
+      cover={
+        <img
+          src={pokemon.image}
+          alt={pokemon.name}
+          onClick={() => onSelectPokemon(pokemon)}
+        />
+      }
+      extra={icon}
+    >
+      <Meta description="Clic en la imagen para ver detalles" />
+    </Card>
+  );
+};

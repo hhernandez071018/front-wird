@@ -5,3 +5,19 @@
   margin: 3rem;
   padding: 0 3rem 3rem;
 }
+
+.PokemonReadyBattle {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 1rem;
+  padding: 0 1rem 1rem;
+}
+
+.pokemon-title {
+  font-family: "Pokemon", sans-serif;
+}
+
+.pokemon-subtitle {
+  font-family: "Pokemon2", sans-serif;
+}

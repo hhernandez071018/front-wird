@@ -1,3 +1,12 @@
+
+type Stat = {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+};
 export interface Pokemon {
   id: number;
   name: string;
@@ -7,16 +16,16 @@ export interface Pokemon {
     };
   height: number;
   weight: number;
-  types: string[];
-  stats: {
-    attack: number;
-    defense: number;
-    specialAttack: number;
-    specialDefense: number;
-    speed: number;
-  };
+  types: [{
+    type: {
+      name: string
+    }
+  }];
+  stats: Stat[]
 }
 
 export interface BattleReadyState {
   pokemons: Pokemon[];
 }
+
+

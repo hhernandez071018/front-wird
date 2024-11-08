@@ -9,7 +9,9 @@ const battleReadySlice = createSlice({
   reducers: {
     addPokemon: (state, action: PayloadAction<Pokemon>) => {
       if (state.length < MAX_BATTLE_POKEMONS) {
-        state.push(action.payload);
+        if (!state.find(p => p.id === action.payload.id)) {
+          state.push(action.payload);
+        }
       }
     },
     removePokemon: (state, action: PayloadAction<number>) => {

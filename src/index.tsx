@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <React.StrictMode>
-      <App />
+        <App />
       </React.StrictMode>
     </Provider>
   </React.StrictMode>

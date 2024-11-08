@@ -1,33 +1,38 @@
 import { useDispatch } from "react-redux";
-import { PokemonCard } from "./PokemonCard"
+import { PokemonCard } from "./PokemonCard";
 import { addPokemon } from "../store/slices/battleReadySlice";
-
 import { Pokemon } from "../types/pokemonsTypes";
-
+import { PlusCircleOutlined } from "@ant-design/icons";
 
 type Props = {
-    pokemons: Pokemon[];
-    onAddToBattle: (pokemon: Pokemon) => void;
+  pokemons: Pokemon[];
+  onAddToBattle: (pokemon: Pokemon) => void;
   onSelectPokemon: (pokemon: Pokemon) => void;
-}
-export const PokemonList = ({pokemons, onSelectPokemon} : Props): JSX.Element => {
-
+};
+export const PokemonList = ({
+  pokemons,
+  onSelectPokemon,
+}: Props): JSX.Element => {
   const dispatch = useDispatch();
 
-    const handleAddToBattleReady = (pokemon: Pokemon) => {
+  const handleAddToBattleReady = (pokemon: Pokemon) => {
     dispatch(addPokemon(pokemon));
-    };
+  };
 
-    return (
-        <div className="PokemonList">
-            {pokemons.map((pokemon) => (
-                <PokemonCard
-                key={pokemon.id}
-                    pokemon={pokemon}
-                    onSelectPokemon={onSelectPokemon}
-                onAddToBattleReady={handleAddToBattleReady}
-                />
-            ))}
-        </div>
-    )
+  return (
+    <div className="PokemonList">
+      {pokemons.map((pokemon) => (
+        <PokemonCard
+          key={pokemon.id}
+          pokemon={pokemon}
+          onSelectPokemon={onSelectPokemon}
+          icon={
+            <PlusCircleOutlined
+              onClick={() => handleAddToBattleReady(pokemon)}
+            />
+          }
+        />
+      ))}
+    </div>
+  );
 };
